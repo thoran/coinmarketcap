@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pro-api.coinmarketcap.com/v1/exchange/market-pairs/latest?id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      X-Cmc-Pro-Api-Key:
+      - d181df21-7401-4897-99ed-8e4c53f228e0
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 22 Feb 2026 09:26:52 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      Server:
+      - Tengine
+      Vary:
+      - Accept-Encoding
+      - origin
+      Cache-Control:
+      - no-cache
+      X-Traefik-Route:
+      - coinmarketcap-pro-apis
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 19dc33c288e93eab17f860a762901768.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - CDG55-P3
+      X-Amz-Cf-Id:
+      - 07FLbkdvoPWD_5LSYfMgjU1BrGKuXm3JCiwqfGobRDnDFnKMpmCoHQ==
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+            "status": {
+                "timestamp": "2026-02-22T09:26:52.423Z",
+                "error_code": 1006,
+                "error_message": "Your API Key subscription plan doesn't support this endpoint.",
+                "elapsed": 0,
+                "credit_count": 0
+            }
+        }
+  recorded_at: Sun, 22 Feb 2026 09:26:52 GMT
+recorded_with: VCR 6.4.0

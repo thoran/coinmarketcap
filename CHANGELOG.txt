@@ -1,3 +1,13 @@
+20250222
+0.6.0: + /v1/exchange
+1. + CoinMarketCap::V1::Client#exchange_assets
+2. + CoinMarketCap::V1::Client#exchange_info
+3. + CoinMarketCap::V1::Client#exchange_map
+4. + CoinMarketCap::V1::Client#exchange_listings_latest
+5. + CoinMarketCap::V1::Client#exchange_market_pairs_latest
+6. + CoinMarketCap::V1::Client#exchange_quotes_historical
+7. + CoinMarketCap::V1::Client#exchange_quotes_latest
+
 20250513
 0.5.0: Add arguments to latest_listings() in main, listings_latest() in V1, and market_pairs_latest() in V2.
 1. ~ CoinMarketCap::Client#latest_listings: + args

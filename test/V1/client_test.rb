@@ -137,6 +137,81 @@ describe CoinMarketCap::V1::Client do
     end
   end
 
+  describe "#exchange_assets" do
+    it "returns exchange assets" do
+      VCR.use_cassette('v1/exchange/assets') do
+        response = client.exchange_assets(id: 270)
+        _(response).must_include('data')
+      end
+    end
+  end
+
+  describe "#exchange_info" do
+    it "returns exchange info" do
+      VCR.use_cassette('v1/exchange/info') do
+        response = client.exchange_info(slug: 'binance,gdax')
+        _(response).must_include('data')
+      end
+    end
+  end
+
+  describe "#exchange_map" do
+    it "returns exchange map" do
+      VCR.use_cassette('v1/exchange/map') do
+        response = client.exchange_map
+        _(response).must_include('data')
+      end
+    end
+  end
+
+  describe "#exchange_listings_latest" do
+    it "returns latest exchange listings" do
+      VCR.use_cassette('v1/exchange/listings/latest') do
+        assert_raises CoinMarketCap::Error do
+          response = client.exchange_listings_latest
+          # _(response).must_include('data')
+          _(JSON.parse(response.body).dig('status', 'error_message')).must_equal "Your API Key subscription plan doesn't support this endpoint."
+        end
+      end
+    end
+  end
+
+  describe "#exchange_market_pairs_latest" do
+    it "returns latest exchange market pairs" do
+      VCR.use_cassette('v1/exchange/market-pairs/latest') do
+        assert_raises CoinMarketCap::Error do
+          response = client.exchange_market_pairs_latest(id: '1')
+          # _(response).must_include('data')
+          _(JSON.parse(response.body).dig('status', 'error_message')).must_equal "Your API Key subscription plan doesn't support this endpoint."
+        end
+      end
+    end
+  end
+
+  describe "#exchange_quotes_historical" do
+    it "returns historical exchange quotes" do
+      VCR.use_cassette('v1/exchange/quotes/historical') do
+        assert_raises CoinMarketCap::Error do
+          response = client.exchange_quotes_historical(id: '1')
+          # _(response).must_include('data')
+          _(JSON.parse(response.body).dig('status', 'error_message')).must_equal "Your API Key subscription plan doesn't support this endpoint."
+        end
+      end
+    end
+  end
+
+  describe "#exchange_quotes_latest" do
+    it "returns latest exchange quotes" do
+      VCR.use_cassette('v1/exchange/quotes/latest') do
+        assert_raises CoinMarketCap::Error do
+          response = client.exchange_quotes_latest(id: '1')
+          # _(response).must_include('data')
+          _(JSON.parse(response.body).dig('status', 'error_message')).must_equal "Your API Key subscription plan doesn't support this endpoint."
+        end
+      end
+    end
+  end
+
   describe "#handle_response" do
     it "handles a successful response" do
       raw_response = OpenStruct.new(success?: true, body: '{"data": {}}')

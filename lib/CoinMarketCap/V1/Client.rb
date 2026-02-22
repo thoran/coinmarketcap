@@ -26,57 +26,96 @@ module CoinMarketCap
 
       class << self
         def path_prefix
-          '/v1/cryptocurrency'
+          '/v1'
         end
       end # class << self
 
+      # /cryptocurrency
+
       def airdrop(id:)
-        response = get(path: '/airdrop', args: {id: id})
+        response = get(path: '/cryptocurrency/airdrop', args: {id: id})
         handle_response(response)
       end
 
       def airdrops
-        response = get(path: '/airdrops')
+        response = get(path: '/cryptocurrency/airdrops')
         handle_response(response)
       end
 
       def categories
-        response = get(path: '/categories')
+        response = get(path: '/cryptocurrency/categories')
         handle_response(response)
       end
 
       def category(id:)
-        response = get(path: '/category', args: {id: id})
+        response = get(path: '/cryptocurrency/category', args: {id: id})
         handle_response(response)
       end
 
       def listings_historical
-        response = get(path: '/listings/historical')
+        response = get(path: '/cryptocurrency/listings/historical')
         handle_response(response)
       end
 
       def listings_latest(**args)
-        response = get(path: '/listings/latest', args: args)
+        response = get(path: '/cryptocurrency/listings/latest', args: args)
         handle_response(response)
       end
 
       def map
-        response = get(path: '/map')
+        response = get(path: '/cryptocurrency/map')
         handle_response(response)
       end
 
       def trending_gainers_losers
-        response = get(path: '/trending/gainers-losers')
+        response = get(path: '/cryptocurrency/trending/gainers-losers')
         handle_response(response)
       end
 
       def trending_latest
-        response = get(path: '/trending/latest')
+        response = get(path: '/cryptocurrency/trending/latest')
         handle_response(response)
       end
 
       def trending_most_visited
-        response = get(path: '/trending/most-visited')
+        response = get(path: '/cryptocurrency/trending/most-visited')
+        handle_response(response)
+      end
+
+      # /exchange
+
+      def exchange_assets(id:)
+        response = get(path: '/exchange/assets', args: {id: id})
+        handle_response(response)
+      end
+
+      def exchange_info(**args)
+        response = get(path: '/exchange/info', args: args)
+        handle_response(response)
+      end
+
+      def exchange_map(**args)
+        response = get(path: "/exchange/map", args: args)
+        handle_response(response)
+      end
+
+      def exchange_listings_latest(**args)
+        response = get(path: "/exchange/listings/latest", args: args)
+        handle_response(response)
+      end
+
+      def exchange_market_pairs_latest(**args)
+        response = get(path: "/exchange/market-pairs/latest", args: args)
+        handle_response(response)
+      end
+
+      def exchange_quotes_historical(**args)
+        response = get(path: "/exchange/quotes/historical", args: args)
+        handle_response(response)
+      end
+
+      def exchange_quotes_latest(**args)
+        response = get(path: "/exchange/quotes/latest", args: args)
         handle_response(response)
       end
     end

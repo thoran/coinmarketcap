@@ -2,9 +2,7 @@ require_relative './lib/CoinMarketCap/VERSION'
 
 Gem::Specification.new do |spec|
   spec.name = 'coinmarketcap.rb'
-
   spec.version = CoinMarketCap::VERSION
-  spec.date = '2025-05-13'
 
   spec.summary = "Access the coinmarketcap.com API with Ruby."
   spec.description = "Access the coinmarketcap.com API with Ruby."
