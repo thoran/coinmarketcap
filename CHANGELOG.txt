@@ -1,4 +1,13 @@
 20250222
+0.6.1: ~ CoinMarketCap::Client: + /v1/exchange
+1. + CoinMarketCap::Client#exchange_assets
+2. + CoinMarketCap::Client#exchange_info
+3. + CoinMarketCap::Client#exchange_map
+4. + CoinMarketCap::Client#exchange_listings_latest
+5. + CoinMarketCap::Client#exchange_market_pairs_latest
+6. + CoinMarketCap::Client#exchange_quotes
+
+20250222
 0.6.0: + /v1/exchange
 1. + CoinMarketCap::V1::Client#exchange_assets
 2. + CoinMarketCap::V1::Client#exchange_info

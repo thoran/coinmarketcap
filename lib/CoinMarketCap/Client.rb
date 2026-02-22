@@ -75,6 +75,34 @@ module CoinMarketCap
       v1_client.trending_latest
     end
 
+    def exchange_assets(id:)
+      v1_client.exchange_assets(id: id)
+    end
+
+    def exchange_info(**args)
+      v1_client.exchange_info(**args)
+    end
+
+    def exchange_map(**args)
+      v1_client.exchange_map(**args)
+    end
+
+    def exchange_listings(**args)
+      v1_client.exchange_listings_latest(**args)
+    end
+
+    def exchange_market_pairs(**args)
+      v1_client.exchange_market_pairs_latest(**args)
+    end
+
+    def exchange_quotes(historical: false, **args)
+      if historical
+        v1_client.exchange_quotes_historical(**args)
+      else
+        v1_client.exchange_quotes_latest(**args)
+      end
+    end
+
     private
 
     def initialize(api_key:)
