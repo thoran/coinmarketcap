@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.files = [
     'coinmarketcap.rb.gemspec',
     'Gemfile',
+    'LICENSE',
     Dir['lib/**/*.rb'],
     'README.md',
     Dir['test/**/*.rb']
