@@ -1,3 +1,10 @@
+20260910
+0.6.3: ~ lib/CoinMarketCap.rb: + require_relative './CoinMarketCap/VERSION'; + test/VERSION_test.rb
+1. ~ lib/CoinMarketCap.rb: + `require_relative './CoinMarketCap/VERSION'`, last among the requires. The file has been present and unreached, so `require 'coinmarketcap.rb'` left CoinMarketCap::VERSION undefined and the gemspec was the only thing loading it.
+2. + test/VERSION_test.rb: that CoinMarketCap::VERSION is a string, that it is three numbers separated by dots, and that it matches the newest entry in the changelog. Modelled on moby's, which is where the convention comes from.
+3. The test loads the library rather than VERSION.rb, which is the whole of its value: run against v0.6.2 it fails with "uninitialized constant CoinMarketCap::VERSION". Nine libraries were in that state and not one of them carried this test, which is how it went unseen.
+4. ~ CoinMarketCap::VERSION: /0.6.2/0.6.3/
+
 20260822
 0.6.2: + LICENSE, which the gemspec has claimed without one being present.
 1. + LICENSE: the MIT text, copyright 2025-2026 thoran. The gemspec has declared MIT while the repository carried no licence text at all.
