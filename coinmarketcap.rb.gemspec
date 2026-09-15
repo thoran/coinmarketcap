@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.author = 'thoran'
   spec.email = 'code@thoran.com'
-  spec.homepage = 'http://github.com/thoran/coinmarketcap.rb'
+  spec.homepage = 'http://github.com/thoran/coinmarketcap'
   spec.license = 'Ruby'
 
   spec.required_ruby_version = '>= 2.7'

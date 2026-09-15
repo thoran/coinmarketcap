@@ -2,6 +2,13 @@
 
 ## 20260915
 
+0.6.5: /thoran\/coinmarketcap.rb/thoran\/coinmarketcap/, the repository renamed.
+
+1. ~ coinmarketcap.rb.gemspec: spec.homepage.
+2. ~ README.md: the fork URL, which 0.6.4 corrected and which follows the rename now.
+3. The gem keeps its name, coinmarketcap.rb. The bare coinmarketcap is another author's, registered 20170616, so there is no second gemspec here.
+4. ~ CoinMarketCap::VERSION: /0.6.4/0.6.5/
+
 0.6.4: Rewrite the CHANGELOG in the standard form, and the README's fork URL, which named another project.
 
 1. ~ CHANGELOG.txt --> CHANGELOG, as every other gem here spells it; + the title, + ## before each date, + a blank line between each summary and its first item. No item is reworded, dropped or reordered.
