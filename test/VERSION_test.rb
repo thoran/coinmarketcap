@@ -14,7 +14,7 @@ describe CoinMarketCap do
     end
 
     it "matches the newest entry in the CHANGELOG" do
-      changelog = File.read(File.expand_path('../CHANGELOG.txt', __dir__))
+      changelog = File.read(File.expand_path('../CHANGELOG', __dir__))
       _(changelog[/^(\d+\.\d+\.\d+):/, 1]).must_equal CoinMarketCap::VERSION
     end
   end

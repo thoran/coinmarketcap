@@ -1,19 +1,37 @@
-20260910
+# coinmarketcap.rb/CHANGELOG
+
+## 20260915
+
+0.6.4: Rewrite the CHANGELOG in the standard form, and the README's fork URL, which named another project.
+
+1. ~ CHANGELOG.txt --> CHANGELOG, as every other gem here spells it; + the title, + ## before each date, + a blank line between each summary and its first item. No item is reworded, dropped or reordered.
+2. ~ test/VERSION_test.rb: /CHANGELOG.txt/CHANGELOG/. It reads the file by name, so the rename alone left it erroring upon a path which no longer exists.
+3. ~ CHANGELOG: /202503030/20250330/, nine digits where eight belong. 0.4.1 was committed 20250330, and the heading sits between 20250307 and 20250513, which agrees.
+4. ~ README.md: the fork URL named another repository, having been copied from it, so it sent anyone following it to the wrong project.
+5. ~ CoinMarketCap::VERSION: /0.6.3/0.6.4/
+
+
+## 20260910
+
 0.6.3: ~ lib/CoinMarketCap.rb: + require_relative './CoinMarketCap/VERSION'; + test/VERSION_test.rb
+
 1. ~ lib/CoinMarketCap.rb: + `require_relative './CoinMarketCap/VERSION'`, last among the requires. The file has been present and unreached, so `require 'coinmarketcap.rb'` left CoinMarketCap::VERSION undefined and the gemspec was the only thing loading it.
-2. + test/VERSION_test.rb: that CoinMarketCap::VERSION is a string, that it is three numbers separated by dots, and that it matches the newest entry in the changelog. Modelled on moby's, which is where the convention comes from.
+2. + test/VERSION_test.rb: that CoinMarketCap::VERSION is a string, that it is three numbers separated by dots, and that it matches the newest entry in the changelog.
 3. The test loads the library rather than VERSION.rb, which is the whole of its value: run against v0.6.2 it fails with "uninitialized constant CoinMarketCap::VERSION". Nine libraries were in that state and not one of them carried this test, which is how it went unseen.
 4. ~ CoinMarketCap::VERSION: /0.6.2/0.6.3/
 
-20260822
+
+## 20260822
+
 0.6.2: + LICENSE, which the gemspec has claimed without one being present.
+
 1. + LICENSE: the MIT text, copyright 2025-2026 thoran. The gemspec has declared MIT while the repository carried no licence text at all.
 2. ~ coinmarketcap.rb.gemspec: + 'LICENSE' to spec.files, so the gem carries what the declaration claims.
 3. ~ README.md: + License
 4. ~ CoinMarketCap::VERSION: /0.6.1/0.6.2/
 
-20250222
 0.6.1: ~ CoinMarketCap::Client: + /v1/exchange
+
 1. + CoinMarketCap::Client#exchange_assets
 2. + CoinMarketCap::Client#exchange_info
 3. + CoinMarketCap::Client#exchange_map
@@ -21,8 +39,8 @@
 5. + CoinMarketCap::Client#exchange_market_pairs_latest
 6. + CoinMarketCap::Client#exchange_quotes
 
-20250222
 0.6.0: + /v1/exchange
+
 1. + CoinMarketCap::V1::Client#exchange_assets
 2. + CoinMarketCap::V1::Client#exchange_info
 3. + CoinMarketCap::V1::Client#exchange_map
@@ -31,8 +49,11 @@
 6. + CoinMarketCap::V1::Client#exchange_quotes_historical
 7. + CoinMarketCap::V1::Client#exchange_quotes_latest
 
-20250513
+
+## 20250513
+
 0.5.0: Add arguments to latest_listings() in main, listings_latest() in V1, and market_pairs_latest() in V2.
+
 1. ~ CoinMarketCap::Client#latest_listings: + args
 2. ~ CoinMarketCap::V1::Client#listings_latest: + args
 3. ~ CoinMarketCap::V2::Client#market_pairs_latest: + args
@@ -40,21 +61,27 @@
 5. ~ README.md: Tiny edit.
 6. ~ Gemfile; "gem 'webmock'" was missing.
 
-202503030
+
+## 20250330
+
 0.4.1: Finish reordering CoinMarketCap::Client methods alphabetically; + test/test_all.rb to run all tests.
+
 1. ~ CoinMarketCap::Client: Finish reordering of methods alphabetically.
 2. + test/test_all.rb
 
-202503030
 0.4.0: Gemified, some interface tweaks, and a README.
+
 1. + CoinMarketCap::VERSION
 2. + coinmarketcap.gemspec
 3. + README.md
 4. ~ CoinMarketCap::Client: Change interface names to be even more consistent and readable
 5. ~ test/client_test.rb: Accommodate interface name changes.
 
-20250306,7
+
+## 20250307
+
 0.3.0: Complete V1 and V2 cryptocurrency endpoints. (Still need to add more arguments than id though...)
+
 1. ~ CoinMarketCap::Client: Add remaining endpoints, but having a single plural endpoint for some.
 2. ~ CoinMarketCap::V1::Client: Add remaining endpoints.
 3. ~ CoinMarketCap::V2::Client: Add remaining endpoints.
@@ -64,21 +91,24 @@
 7. ~ test/V2/client_test.rb: Add remaining endpoint tests.
 8. ~ test/client_test.rb: Add newly covered endpoint tests.
 
-20250305
+
+## 20250305
+
 0.2.2: Introduce VCR gem for testing.
+
 1. + gem 'vcr'
 2. + test/helper.rb
 3. ~ test/V1/client_test.rb: Use VCR.
 4. ~ test/V2/client_test.rb: Use VCR.
 5. ~ test/client_test.rb: Use VCR.
 
-20250305
 0.2.1: Refactor with common methods placed in a module.
+
 1. + CoinMarketCap::Common
 2. ~ CoinMarketCap::V1::Client: Use CoinMarketCap::Common.
 3. ~ CoinMarketCap::V2::Client: Use CoinMarketCap::Common.
 
-20250305
 0.2.0: Introduce V2 endpoints.
+
 1. + CoinMarketCap::V2::Client
 2. + CoinMarketCap::Client (One which isn't just a sub-class of V1 or V2.)
