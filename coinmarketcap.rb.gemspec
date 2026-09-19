@@ -1,3 +1,5 @@
+# coinmarketcap.rb.gemspec
+
 require_relative './lib/CoinMarketCap/VERSION'
 
 Gem::Specification.new do |spec|
@@ -13,15 +15,16 @@ Gem::Specification.new do |spec|
   spec.license = 'Ruby'
 
   spec.required_ruby_version = '>= 2.7'
+  spec.require_paths = ['lib']
 
   spec.add_dependency('http.rb')
   spec.files = [
     'coinmarketcap.rb.gemspec',
+    Dir['lib/**/*.rb'],
+    Dir['test/**/*.rb'],
+    'CHANGELOG',
     'Gemfile',
     'LICENSE',
-    Dir['lib/**/*.rb'],
     'README.md',
-    Dir['test/**/*.rb']
   ].flatten
-  spec.require_paths = ['lib']
 end

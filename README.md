@@ -1,4 +1,4 @@
-# coinmarketcap.rb
+# coinmarketcap
 
 ## Description
 

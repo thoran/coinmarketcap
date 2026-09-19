@@ -1,4 +1,14 @@
-# coinmarketcap.rb/CHANGELOG
+# coinmarketcap/CHANGELOG
+
+## 20260919
+
+0.6.6: Clean up remaining rename items.
+
+1. ~ CHANGELOG: /# coinmarketcap.rb\/CHANGELOG/# coinmarketcap\/CHANGELOG/
+2. ~ README.md: /coinmarketcap.rb/coinmarketcap/
+3. ~ CHANGELOG: - the one item which recorded no change, the numbering closed up behind it.
+4. ~ coinmarketcap.rb.gemspec: + 'CHANGELOG' to spec.files, without which the file sits in the repository and never reaches anyone who installs the gem.
+5. ~ CoinMarketCap::VERSION: /0.6.5/0.6.6/
 
 ## 20260915
 
@@ -6,8 +16,7 @@
 
 1. ~ coinmarketcap.rb.gemspec: spec.homepage.
 2. ~ README.md: the fork URL, which 0.6.4 corrected and which follows the rename now.
-3. The gem keeps its name, coinmarketcap.rb. The bare coinmarketcap is another author's, registered 20170616, so there is no second gemspec here.
-4. ~ CoinMarketCap::VERSION: /0.6.4/0.6.5/
+3. ~ CoinMarketCap::VERSION: /0.6.4/0.6.5/
 
 0.6.4: Rewrite the CHANGELOG in the standard form, and the README's fork URL, which named another project.
 
@@ -24,8 +33,7 @@
 
 1. ~ lib/CoinMarketCap.rb: + `require_relative './CoinMarketCap/VERSION'`, last among the requires. The file has been present and unreached, so `require 'coinmarketcap.rb'` left CoinMarketCap::VERSION undefined and the gemspec was the only thing loading it.
 2. + test/VERSION_test.rb: that CoinMarketCap::VERSION is a string, that it is three numbers separated by dots, and that it matches the newest entry in the changelog.
-3. The test loads the library rather than VERSION.rb, which is the whole of its value: run against v0.6.2 it fails with "uninitialized constant CoinMarketCap::VERSION". Nine libraries were in that state and not one of them carried this test, which is how it went unseen.
-4. ~ CoinMarketCap::VERSION: /0.6.2/0.6.3/
+3. ~ CoinMarketCap::VERSION: /0.6.2/0.6.3/
 
 
 ## 20260822
